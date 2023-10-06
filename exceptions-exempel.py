@@ -16,12 +16,12 @@ def input_int(prompt=""):
 
     Returvärdet är garanterat av typen int.
     """
-    while True:
-        try:
-            inmatning = int(input(prompt))
-            return inmatning
-        except ValueError as err:
-            print(f"Det var fel, det måste vara ett heltal: {err}")
+    try:
+        inmatning = int(input(prompt))
+        return inmatning
+    except ValueError as err:
+        print(f"Det var fel, det måste vara ett heltal: {err}")
+        return input_int(prompt)
 
 
 def main():
