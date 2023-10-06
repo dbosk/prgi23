@@ -8,22 +8,30 @@ Om användaren skriver in något annat än ett tal
 då får hen försöka igen.
 """
 
-def main():
-    """Huvudprogrammet"""
-    talet = 5
+def input_int(prompt=""):
+    """
+    Skriver ut prompt och låter användaren mata in en int.
+    Repeterar så länge användaren inte matar in något av
+    korrekt typ.
+
+    Returvärdet är garanterat av typen int.
+    """
     while True:
         try:
-            gissning = int(input("Gissa vilket tal vi tänker på: "))
-            break
-        except ValueError:
-            print("Det var fel, det måste vara ett heltal.")
+            inmatning = int(input(prompt))
+            return inmatning
+        except ValueError as err:
+            print(f"Det var fel, det måste vara ett heltal: {err}")
+
+
+def main():
+    """Huvudprogrammet"""
+    talet = input_int("Skriv in vilket tal vi ska tänka på: ")
+    gissning = input_int("Gissa vilket tal vi tänker på: ")
 
     if talet == gissning:
         print("Grattis, det var rätt gissat!")
     else:
         print("Tyvärr, det var fel!")
 
-try:
-    main()
-except:
-    print("Det har uppstått ett okänt fel.")
+main()
