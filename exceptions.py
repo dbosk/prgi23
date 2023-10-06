@@ -34,4 +34,5 @@ def main():
     else:
         print("Tyvärr, det var fel!")
 
-main()
+if __name__ == "__main__":
+    main()
