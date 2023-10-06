@@ -11,15 +11,19 @@ då får hen försöka igen.
 def main():
     """Huvudprogrammet"""
     talet = 5
-    try:
-        gissning = int(input("Gissa vilket tal vi tänker på: "))
-    except ValueError:
-        print("Det var fel typ, det måste vara ett heltal.")
-        return
+    while True:
+        try:
+            gissning = int(input("Gissa vilket tal vi tänker på: "))
+            break
+        except ValueError:
+            print("Det var fel, det måste vara ett heltal.")
 
     if talet == gissning:
         print("Grattis, det var rätt gissat!")
     else:
         print("Tyvärr, det var fel!")
 
-main()
+try:
+    main()
+except:
+    print("Det har uppstått ett okänt fel.")
